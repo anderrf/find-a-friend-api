@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "tsx watch src/server.ts",
+    "build": "tsup src --out-dir build",
+    "start": "node build/server.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,18 @@
   "bugs": {
     "url": "https://github.com/anderrf/find-a-friend-api/issues"
   },
-  "homepage": "https://github.com/anderrf/find-a-friend-api#readme"
+  "homepage": "https://github.com/anderrf/find-a-friend-api#readme",
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^2.1.0",
+    "@types/node": "^20.6.1",
+    "eslint": "^8.49.0",
+    "tsup": "^7.2.0",
+    "tsx": "^3.12.10",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "dotenv": "16.3.1",
+    "fastify": "^4.23.2",
+    "zod": "3.22.2"
+  }
 }
