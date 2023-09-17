@@ -12,7 +12,7 @@ API for finding you a new pet mate
     - Species
     - Required space
     - Energy level
-    - Independency level
+    - Independence level
     - Size
     - Photos
     - Requirements to adopt
