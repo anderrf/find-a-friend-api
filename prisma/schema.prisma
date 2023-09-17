@@ -19,12 +19,13 @@ model Organization {
   State         String
   email         String @unique
   password_hash String
+  Pet           Pet[]
 
   @@map("organizations")
 }
 
 model Pet {
-  id                 String    @id @default(uuid())
+  id                 String           @id @default(uuid())
   name               String
   description        String?
   species            String
@@ -32,9 +33,13 @@ model Pet {
   energy_level       Int
   independence_level Int
   size               Int
-  registered_at      DateTime  @default(now())
+  registered_at      DateTime         @default(now())
   adopted_at         DateTime?
-  is_active          Boolean   @default(true)
+  is_active          Boolean          @default(true)
+  organization_id    String
+  organization       Organization     @relation(fields: [organization_id], references: [id])
+  PetPhoto           PetPhoto[]
+  PetRequirement     PetRequirement[]
 
   @@map("pets")
 }
@@ -42,9 +47,17 @@ model Pet {
 model PetPhoto {
   id        String @id @default(uuid())
   photo_url String
+  pet_id    String
+  pet       Pet    @relation(fields: [pet_id], references: [id])
+
+  @@map("petPhotos")
 }
 
 model PetRequirement {
   id          String @id @default(uuid())
   requirement String
+  pet_id      String
+  pet         Pet    @relation(fields: [pet_id], references: [id])
+
+  @@map("petRequirements")
 }
