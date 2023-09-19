@@ -6,7 +6,9 @@
   "scripts": {
     "start:dev": "tsx watch src/server.ts",
     "build": "tsup src --out-dir build",
-    "start": "node build/server.js"
+    "start": "node build/server.js",
+    "test": "vitest run --dir src/use-cases",
+    "test:watch": "vitest --dir src/use-cases"
   },
   "repository": {
     "type": "git",
@@ -19,19 +21,24 @@
     "url": "https://github.com/anderrf/find-a-friend-api/issues"
   },
   "homepage": "https://github.com/anderrf/find-a-friend-api#readme",
+  "dependencies": {
+    "@prisma/client": "5.3.1",
+    "bcryptjs": "2.4.3",
+    "dotenv": "16.3.1",
+    "fastify": "^4.23.2",
+    "zod": "3.22.2"
+  },
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.1.0",
+    "@types/bcryptjs": "2.4.4",
     "@types/node": "^20.6.1",
+    "@vitest/ui": "0.34.4",
     "eslint": "^8.49.0",
     "prisma": "5.3.1",
     "tsup": "^7.2.0",
     "tsx": "^3.12.10",
-    "typescript": "^5.2.2"
-  },
-  "dependencies": {
-    "@prisma/client": "5.3.1",
-    "dotenv": "16.3.1",
-    "fastify": "^4.23.2",
-    "zod": "3.22.2"
+    "typescript": "^5.2.2",
+    "vite-tsconfig-paths": "4.2.1",
+    "vitest": "0.34.4"
   }
 }

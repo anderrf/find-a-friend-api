@@ -37,4 +37,4 @@ API for finding you a new pet mate
 - [ ] A pet should be linked to an ORG
 - [ ] An user who wants to adopt a pet will contact the ORG by Whatsapp
 - [ ] All pet's listing filters but the city will be optional
-- [ ] An ORG should be authenticated to acces the aplication as admin
+- [ ] An ORG should be authenticated to access the aplication as admin

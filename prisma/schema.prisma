@@ -11,15 +11,17 @@ datasource db {
 }
 
 model Organization {
-  id            String @id @default(uuid())
-  name          String
-  postal_code   String
-  address       String
-  city          String
-  State         String
-  email         String @unique
-  password_hash String
-  Pet           Pet[]
+  id                  String @id @default(uuid())
+  name                String
+  responsible_name    String
+  postal_code         String
+  address             String
+  city                String
+  state               String
+  email               String @unique
+  mobile_phone_number String @unique
+  password_hash       String
+  pet                 Pet[]
 
   @@map("organizations")
 }
@@ -38,8 +40,8 @@ model Pet {
   is_active          Boolean          @default(true)
   organization_id    String
   organization       Organization     @relation(fields: [organization_id], references: [id])
-  PetPhoto           PetPhoto[]
-  PetRequirement     PetRequirement[]
+  petPhoto           PetPhoto[]
+  petRequirement     PetRequirement[]
 
   @@map("pets")
 }
