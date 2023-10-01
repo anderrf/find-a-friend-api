@@ -12,4 +12,5 @@ export interface OrganizationsRepository {
     state: string,
     page?: number,
   ): Promise<Organization[]>
+  findAllByCityAndState(city: string, state: string): Promise<Organization[]>
 }

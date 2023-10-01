@@ -35,6 +35,7 @@ model Pet {
   energy_level       Int
   independence_level Int
   size               Int
+  age                Int
   registered_at      DateTime         @default(now())
   adopted_at         DateTime?
   is_active          Boolean          @default(true)

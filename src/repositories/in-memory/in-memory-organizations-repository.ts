@@ -43,4 +43,13 @@ export class InMemoryOrganizationsRepository
       .filter((item) => item.city === city && item.state === state)
       .slice((page - 1) * 20, page * 20)
   }
+
+  async findAllByCityAndState(
+    city: string,
+    state: string,
+  ): Promise<Organization[]> {
+    return this.items.filter(
+      (item) => item.city === city && item.state === state,
+    )
+  }
 }

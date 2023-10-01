@@ -1,8 +1,7 @@
-import { describe, it, beforeEach, afterEach, expect } from 'vitest'
+import { describe, it, beforeEach, expect } from 'vitest'
 import { CreateOrganizationUseCase } from './create-organization'
 import { OrganizationsRepository } from '@/repositories/organizations-repository'
 import { InMemoryOrganizationsRepository } from '@/repositories/in-memory/in-memory-organizations-repository'
-import { string } from 'zod'
 import { UserAlreadyExistsError } from '../errors/user-already-exists'
 import { PhoneNumberIsAlreadyUsedError } from '../errors/phone-number-is-already-used'
 
