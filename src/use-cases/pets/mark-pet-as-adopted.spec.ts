@@ -7,7 +7,7 @@ import { MarkPetAsAdoptedUseCase } from './mark-pet-as-adopted'
 import { ResourceNotFoundError } from '../errors/resource-not-found-error'
 import { InactiveResourceError } from '../errors/inactive-resource-error'
 
-describe('Get Pet Info Use Case', () => {
+describe('Mark Pet As Adopted Use Case', () => {
   let organizationsRepository: OrganizationsRepository
   let petsRepository: PetsRepository
   let sut: MarkPetAsAdoptedUseCase
@@ -73,7 +73,7 @@ describe('Get Pet Info Use Case', () => {
     ).rejects.toBeInstanceOf(ResourceNotFoundError)
   })
 
-  it('should not be able to mark non-registered pet as adopted', async () => {
+  it('should not be able to mark adopted or inactive pet as adopted', async () => {
     await petsRepository.create({
       id: 'pet-03',
       name: 'Bela',

@@ -21,7 +21,6 @@ export class MarkPetAsAdoptedUseCase {
     if (!petToAdopt) {
       throw new ResourceNotFoundError()
     }
-    console.log(petToAdopt)
     if (petToAdopt.adopted_at || !petToAdopt.is_active) {
       throw new InactiveResourceError()
     }
