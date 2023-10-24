@@ -22,6 +22,7 @@ model Organization {
   mobile_phone_number String @unique
   password_hash       String
   pet                 Pet[]
+  role                String @default("ORG")
 
   @@map("organizations")
 }

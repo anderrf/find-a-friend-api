@@ -11,6 +11,7 @@ export class InMemoryOrganizationsRepository
     const newItemsLength = this.items.push({
       ...data,
       id: data.id || randomUUID(),
+      role: 'ORG',
     })
     return this.items[newItemsLength - 1]
   }

@@ -1,8 +1,8 @@
 import app from '@/app'
-import { beforeAll, describe, afterAll, it, expect } from 'vitest'
+import { afterAll, beforeAll, describe, it, expect } from 'vitest'
 import request from 'supertest'
 
-describe('Create Organization (E2E)', () => {
+describe('Authenticate (E2E)', () => {
   beforeAll(async () => {
     await app.ready()
   })
@@ -11,7 +11,7 @@ describe('Create Organization (E2E)', () => {
     await app.close()
   })
 
-  it('should be able to create a Organization', async () => {
+  it('should be able to authenticate', async () => {
     const organizationData = {
       name: 'Animal Pal',
       city: 'Mongaguá',
@@ -23,9 +23,15 @@ describe('Create Organization (E2E)', () => {
       postalCode: '11730000',
       password: 'palpassword',
     }
+    await request(app.server).post('/organizations').send(organizationData)
     const response = await request(app.server)
-      .post('/organizations')
-      .send(organizationData)
-    expect(response.statusCode).toEqual(201)
+      .post('/organizations/sessions')
+      .send({
+        email: 'contato@pethelp.org',
+        password: 'palpassword',
+      })
+    // console.log(response)
+    expect(response.statusCode).toEqual(200)
+    expect(response.body).toEqual({ token: expect.any(String) })
   })
 })

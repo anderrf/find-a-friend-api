@@ -4,7 +4,12 @@ import { prisma } from '@/lib/prisma'
 
 export class PrismaOrganizationsRepository implements OrganizationsRepository {
   async create(data: Prisma.OrganizationCreateInput): Promise<Organization> {
-    return await prisma.organization.create({ data })
+    return await prisma.organization.create({
+      data: {
+        ...data,
+        role: 'ORG',
+      },
+    })
   }
 
   async findById(id: string): Promise<Organization | null> {
