@@ -1,12 +1,12 @@
 import { PetRequirementsRepository } from '@/repositories/pet-requirements-repository'
-import { PetsRepository } from './../../repositories/pets-repository'
+import { PetsRepository } from '../../../repositories/pets-repository'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { InMemoryPetsRepository } from '@/repositories/in-memory/in-memory-pets-repository'
 import { OrganizationsRepository } from '@/repositories/organizations-repository'
 import { InMemoryOrganizationsRepository } from '@/repositories/in-memory/in-memory-organizations-repository'
 import { InMemoryPetRequirementsRepository } from '@/repositories/in-memory/in-memory-pet-requirements-repository'
 import { SetRequirementsUseCase } from './set-requirements-use-case'
-import { ResourceNotFoundError } from '../errors/resource-not-found-error'
+import { ResourceNotFoundError } from '../../errors/resource-not-found-error'
 
 describe('Set Requirements Use Case', () => {
   let organizationsRepository: OrganizationsRepository

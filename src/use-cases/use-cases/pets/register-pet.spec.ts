@@ -3,13 +3,13 @@ import { OrganizationsRepository } from '@/repositories/organizations-repository
 import { InMemoryOrganizationsRepository } from '@/repositories/in-memory/in-memory-organizations-repository'
 import { PetsRepository } from '@/repositories/pets-repository'
 import { InMemoryPetsRepository } from '@/repositories/in-memory/in-memory-pets-repository'
-import { GetPetInfoUseCase } from './get-pet-info'
-import { ResourceNotFoundError } from '../errors/resource-not-found-error'
+import { RegisterPetUseCase } from './register-pet'
+import { ResourceNotFoundError } from '../../errors/resource-not-found-error'
 
-describe('Get Pet Info Use Case', () => {
+describe('Register Pet Use Case', () => {
   let organizationsRepository: OrganizationsRepository
   let petsRepository: PetsRepository
-  let sut: GetPetInfoUseCase
+  let sut: RegisterPetUseCase
 
   beforeEach(async () => {
     organizationsRepository = new InMemoryOrganizationsRepository()
@@ -38,35 +38,36 @@ describe('Get Pet Info Use Case', () => {
       password_hash: 'palpassword',
     })
     petsRepository = new InMemoryPetsRepository(organizationsRepository)
-    await petsRepository.create({
-      id: 'pet-01',
+    sut = new RegisterPetUseCase(petsRepository)
+  })
+
+  it('should be able to register pet', async () => {
+    const { pet } = await sut.execute({
       name: 'Nina',
       species: 'Dog',
       size: 2,
-      required_space: 2,
+      requiredSpace: 2,
       age: 3,
-      energy_level: 2,
+      energyLevel: 2,
       description: 'Black and white dog',
-      independence_level: 1,
-      organization_id: 'org-01',
+      indepenceLevel: 1,
+      organizationId: 'org-01',
     })
-    sut = new GetPetInfoUseCase(petsRepository)
+    expect(pet.id).toEqual(expect.any(String))
   })
 
-  it('should be able to get info from registered pet', async () => {
-    const { pet } = await sut.execute({ petId: 'pet-01' })
-    expect(pet).toEqual(
-      expect.objectContaining({
-        id: 'pet-01',
-        name: 'Nina',
-      }),
-    )
-  })
-
-  it('should not be able to get info from non-registered pet', async () => {
+  it('should not be able to register pet with invalid organization id', async () => {
     await expect(() =>
       sut.execute({
-        petId: 'pet-06',
+        name: 'Nina',
+        species: 'Dog',
+        size: 2,
+        requiredSpace: 2,
+        age: 3,
+        energyLevel: 2,
+        description: 'Black and white dog',
+        indepenceLevel: 1,
+        organizationId: 'org-10',
       }),
     ).rejects.toBeInstanceOf(ResourceNotFoundError)
   })

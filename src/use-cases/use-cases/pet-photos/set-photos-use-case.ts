@@ -1,6 +1,6 @@
 import { PetPhoto } from '@prisma/client'
-import { ResourceNotFoundError } from '../errors/resource-not-found-error'
-import { PetsRepository } from './../../repositories/pets-repository'
+import { ResourceNotFoundError } from '../../errors/resource-not-found-error'
+import { PetsRepository } from '../../../repositories/pets-repository'
 import { PetPhotosRepository } from '@/repositories/pet-photos-repository'
 
 export interface SetPhotosUseCaseRequest {

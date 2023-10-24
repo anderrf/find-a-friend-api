@@ -1,8 +1,8 @@
 import { OrganizationsRepository } from '@/repositories/organizations-repository'
 import { Organization } from '@prisma/client'
 import { hash } from 'bcryptjs'
-import { UserAlreadyExistsError } from '../errors/user-already-exists'
-import { PhoneNumberIsAlreadyUsedError } from '../errors/phone-number-is-already-used'
+import { UserAlreadyExistsError } from '../../errors/user-already-exists'
+import { PhoneNumberIsAlreadyUsedError } from '../../errors/phone-number-is-already-used'
 
 export interface CreateOrganizationUseCaseRequest {
   name: string

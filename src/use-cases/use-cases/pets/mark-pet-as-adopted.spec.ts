@@ -4,8 +4,8 @@ import { InMemoryOrganizationsRepository } from '@/repositories/in-memory/in-mem
 import { PetsRepository } from '@/repositories/pets-repository'
 import { InMemoryPetsRepository } from '@/repositories/in-memory/in-memory-pets-repository'
 import { MarkPetAsAdoptedUseCase } from './mark-pet-as-adopted'
-import { ResourceNotFoundError } from '../errors/resource-not-found-error'
-import { InactiveResourceError } from '../errors/inactive-resource-error'
+import { ResourceNotFoundError } from '../../errors/resource-not-found-error'
+import { InactiveResourceError } from '../../errors/inactive-resource-error'
 
 describe('Mark Pet As Adopted Use Case', () => {
   let organizationsRepository: OrganizationsRepository

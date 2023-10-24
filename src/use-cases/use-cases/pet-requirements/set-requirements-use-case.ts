@@ -1,6 +1,6 @@
 import { PetRequirement } from '@prisma/client'
-import { ResourceNotFoundError } from '../errors/resource-not-found-error'
-import { PetsRepository } from './../../repositories/pets-repository'
+import { ResourceNotFoundError } from '../../errors/resource-not-found-error'
+import { PetsRepository } from '../../../repositories/pets-repository'
 import { PetRequirementsRepository } from '@/repositories/pet-requirements-repository'
 
 export interface SetRequirementsUseCaseRequest {

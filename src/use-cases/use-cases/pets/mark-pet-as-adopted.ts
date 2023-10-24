@@ -1,7 +1,7 @@
 import { PetsRepository } from '@/repositories/pets-repository'
-import { ResourceNotFoundError } from '../errors/resource-not-found-error'
+import { ResourceNotFoundError } from '../../errors/resource-not-found-error'
 import { Pet } from '@prisma/client'
-import { InactiveResourceError } from '../errors/inactive-resource-error'
+import { InactiveResourceError } from '../../errors/inactive-resource-error'
 
 export interface MarkPetAsAdoptedUseCaseRequest {
   petId: string

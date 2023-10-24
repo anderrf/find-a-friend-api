@@ -3,7 +3,7 @@ import { OrganizationsRepository } from '@/repositories/organizations-repository
 import { InMemoryOrganizationsRepository } from '@/repositories/in-memory/in-memory-organizations-repository'
 import { AuthenticateOrganizationUseCase } from './authenticate-organization'
 import { hash } from 'bcryptjs'
-import { InvalidCredentialsError } from '../errors/invalid-credentials-error'
+import { InvalidCredentialsError } from '../../errors/invalid-credentials-error'
 
 describe('Authenticate Organization Use Case', () => {
   let organizationsRepository: OrganizationsRepository
