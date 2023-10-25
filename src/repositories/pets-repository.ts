@@ -8,6 +8,7 @@ export interface SearchManyPetsParams {
   energyLevel?: number
   size?: number
   requiredSpace?: number
+  independenceLevel?: number
 }
 
 export interface PetsRepository {

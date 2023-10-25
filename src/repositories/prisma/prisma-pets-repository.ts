@@ -44,6 +44,7 @@ export class PrismaPetsRepository implements PetsRepository {
     size,
     species,
     requiredSpace,
+    independenceLevel,
   }: SearchManyPetsParams): Promise<Pet[]> {
     return await prisma.pet.findMany({
       where: {
@@ -56,6 +57,7 @@ export class PrismaPetsRepository implements PetsRepository {
         species,
         energy_level: energyLevel,
         required_space: requiredSpace,
+        independence_level: independenceLevel,
       },
     })
   }
@@ -108,13 +110,11 @@ export class PrismaPetsRepository implements PetsRepository {
     id: string,
   ): Promise<Organization | null> {
     return (
-      (await prisma.pet
-        .findFirst({
-          where: {
-            organization_id: id,
-          },
-        })
-        .organization()) || null
+      (await prisma.organization.findUnique({
+        where: {
+          id,
+        },
+      })) || null
     )
   }
 

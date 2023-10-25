@@ -1,10 +1,10 @@
 import { FastifyInstance } from 'fastify'
-import { create } from './create'
-import { authenticate } from './authenticate'
+import { createOrganization } from './create-organization'
+import { authenticateOrganization } from './authenticate-organization'
 import { refresh } from './refresh'
 
 export async function organizationsRoutes(app: FastifyInstance) {
-  app.post('/organizations', create)
-  app.post('/organizations/sessions', authenticate)
+  app.post('/organizations', createOrganization)
+  app.post('/organizations/sessions', authenticateOrganization)
   app.patch('/organizations/token/refresh', refresh)
 }

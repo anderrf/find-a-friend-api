@@ -8,7 +8,7 @@ export interface RegisterPetUseCaseRequest {
   species: string
   requiredSpace: number
   energyLevel: number
-  indepenceLevel: number
+  independenceLevel: number
   age: number
   size: number
   organizationId: string
@@ -26,7 +26,7 @@ export class RegisterPetUseCase {
     species,
     requiredSpace,
     energyLevel,
-    indepenceLevel,
+    independenceLevel,
     age,
     size,
     organizationId,
@@ -44,7 +44,7 @@ export class RegisterPetUseCase {
       age,
       required_space: requiredSpace,
       energy_level: energyLevel,
-      independence_level: indepenceLevel,
+      independence_level: independenceLevel,
       organization_id: organizationId,
     })
     return { pet }

@@ -71,6 +71,7 @@ export class InMemoryPetsRepository implements PetsRepository {
     energyLevel,
     size,
     requiredSpace,
+    independenceLevel,
   }: SearchManyPetsParams): Promise<Pet[]> {
     const organizationsInLocation =
       await this.organizationsRepository.findAllByCityAndState(city, state)
@@ -86,7 +87,9 @@ export class InMemoryPetsRepository implements PetsRepository {
         : true && requiredSpace
         ? item.required_space === requiredSpace
         : true && species
-        ? item.species === species
+        ? item.species === species && independenceLevel
+          ? item.independence_level
+          : true
         : true && item.is_active,
     )
   }

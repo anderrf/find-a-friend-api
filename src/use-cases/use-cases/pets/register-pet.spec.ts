@@ -50,7 +50,7 @@ describe('Register Pet Use Case', () => {
       age: 3,
       energyLevel: 2,
       description: 'Black and white dog',
-      indepenceLevel: 1,
+      independenceLevel: 1,
       organizationId: 'org-01',
     })
     expect(pet.id).toEqual(expect.any(String))
@@ -66,7 +66,7 @@ describe('Register Pet Use Case', () => {
         age: 3,
         energyLevel: 2,
         description: 'Black and white dog',
-        indepenceLevel: 1,
+        independenceLevel: 1,
         organizationId: 'org-10',
       }),
     ).rejects.toBeInstanceOf(ResourceNotFoundError)

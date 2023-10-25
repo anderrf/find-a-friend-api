@@ -3,7 +3,7 @@ import { MakeAuthenticateOrganizationUseCase } from '@/use-cases/factories/organ
 import { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
 
-export async function authenticate(
+export async function authenticateOrganization(
   request: FastifyRequest,
   reply: FastifyReply,
 ) {

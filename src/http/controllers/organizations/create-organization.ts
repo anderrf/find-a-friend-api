@@ -2,7 +2,10 @@ import { makeCreateOrganizationUseCase } from '@/use-cases/factories/organizatio
 import { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
 
-export async function create(request: FastifyRequest, reply: FastifyReply) {
+export async function createOrganization(
+  request: FastifyRequest,
+  reply: FastifyReply,
+) {
   const createOrganizationBodySchema = z.object({
     name: z.string(),
     responsibleName: z.string(),

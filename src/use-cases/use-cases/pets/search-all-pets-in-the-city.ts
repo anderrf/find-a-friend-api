@@ -9,6 +9,7 @@ export interface SearchAllPetsInTheCityUseCaseRequest {
   energyLevel?: number
   size?: number
   requiredSpace?: number
+  independenceLevel?: number
 }
 
 export interface SearchAllPetsInTheCityUseCaseReply {
@@ -27,6 +28,7 @@ export class SearchAllPetsInTheCityUseCase {
     energyLevel,
     size,
     requiredSpace,
+    independenceLevel,
   }: SearchAllPetsInTheCityUseCaseRequest): Promise<SearchAllPetsInTheCityUseCaseReply> {
     const pets = await this.petsRepository.searchAllByCityAndState({
       city,
@@ -36,6 +38,7 @@ export class SearchAllPetsInTheCityUseCase {
       energyLevel,
       size,
       requiredSpace,
+      independenceLevel,
     })
     return {
       pets,
