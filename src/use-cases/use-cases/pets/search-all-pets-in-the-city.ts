@@ -1,4 +1,5 @@
 import { PetsRepository } from '@/repositories/pets-repository'
+import { RequiredLocationError } from '@/use-cases/errors/required-location-error'
 import { Pet } from '@prisma/client'
 
 export interface SearchAllPetsInTheCityUseCaseRequest {
@@ -30,6 +31,9 @@ export class SearchAllPetsInTheCityUseCase {
     requiredSpace,
     independenceLevel,
   }: SearchAllPetsInTheCityUseCaseRequest): Promise<SearchAllPetsInTheCityUseCaseReply> {
+    if (!city || !state) {
+      throw new RequiredLocationError()
+    }
     const pets = await this.petsRepository.searchAllByCityAndState({
       city,
       state,

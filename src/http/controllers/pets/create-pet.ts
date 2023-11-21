@@ -13,6 +13,7 @@ export async function createPet(request: FastifyRequest, reply: FastifyReply) {
     age: z.number().int(),
     size: z.number().int(),
   })
+
   const {
     name,
     species,
