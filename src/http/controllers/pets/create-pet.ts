@@ -5,7 +5,7 @@ import { z } from 'zod'
 export async function createPet(request: FastifyRequest, reply: FastifyReply) {
   const registerPetBodySchema = z.object({
     name: z.string(),
-    description: z.string().nullable(),
+    description: z.string().nullish(),
     species: z.string(),
     requiredSpace: z.number().int(),
     energyLevel: z.number().int(),
